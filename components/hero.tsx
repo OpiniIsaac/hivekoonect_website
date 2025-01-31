@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          Digital Transformation for Ugandan Businesses
+          Digital Transformation for Businesses
         </h1>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Affordable, tailored tech solutions to improve operations, boost

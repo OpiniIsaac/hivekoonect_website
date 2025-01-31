@@ -3,11 +3,10 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "TechBridge Uganda - Digital Transformation Solutions",
+  title: "Hive Konnect - Digital Transformation Solutions",
   description:
     "Affordable, tailored tech solutions for Ugandan businesses to improve operations, boost customer engagement, and drive growth.",
 };
