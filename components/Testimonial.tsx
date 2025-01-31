@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const testimonials = [
   {
     quote:
@@ -33,10 +35,12 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
-                <img
+                <Image
                   src={testimonial.image}
                   alt={testimonial.author}
                   className="w-12 h-12 rounded-full mr-4"
+                  width={100}
+                  height={100}
                 />
                 <div>
                   <p className="font-semibold">{testimonial.author}</p>
