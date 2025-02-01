@@ -1,6 +1,6 @@
-"use client"
-import { useState } from "react";
-import { motion } from "framer-motion";
+"use client";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Code,
   Smartphone,
@@ -8,7 +8,6 @@ import {
   Paintbrush,
   BrainCircuit,
   ArrowRight,
- 
   Cpu,
 } from "lucide-react";
 import {
@@ -25,103 +24,93 @@ const services = [
   {
     icon: <Code className="w-12 h-12 text-primary" />,
     title: "Custom Software Development",
-    description:
-      "Tailored software solutions to optimize your business processes.",
+    description: "Tailored software solutions to optimize your business.",
     benefits: [
       "Increased efficiency",
       "Scalable solutions",
-      "Competitive advantage",
+      "Competitive edge",
     ],
   },
   {
     icon: <Smartphone className="w-12 h-12 text-primary" />,
     title: "Mobile & Web App Development",
-    description:
-      "High-performance mobile and web applications for your business growth.",
-    benefits: [
-      "Cross-platform compatibility",
-      "User-centric design",
-      "Seamless user experience",
-    ],
+    description: "High-performance applications to grow your business.",
+    benefits: ["Cross-platform", "User-centric design", "Seamless UX"],
   },
   {
     icon: <Cloud className="w-12 h-12 text-primary" />,
-    title: "IT Consulting & Cloud Solutions",
-    description:
-      "Scalable cloud and IT solutions to future-proof your business.",
-    benefits: [
-      "Cost-effective infrastructure",
-      "Enhanced security",
-      "Flexible scalability",
-    ],
+    title: "Cloud & IT Consulting",
+    description: "Scalable cloud solutions to future-proof your business.",
+    benefits: ["Cost-effective", "Enhanced security", "Scalability"],
   },
   {
     icon: <Paintbrush className="w-12 h-12 text-primary" />,
-    title: "UI/UX & Branding Design",
-    description:
-      "Beautiful, user-friendly designs that enhance digital experiences.",
-    benefits: [
-      "Improved user engagement",
-      "Brand consistency",
-      "Increased conversion rates",
-    ],
+    title: "UI/UX & Branding",
+    description: "Stunning, user-friendly digital experiences.",
+    benefits: ["Better engagement", "Brand consistency", "Higher conversions"],
   },
   {
     icon: <BrainCircuit className="w-12 h-12 text-primary" />,
-    title: "AI & Automation Solutions",
-    description:
-      "Smart AI-driven automation to increase efficiency and innovation.",
-    benefits: [
-      "Data-driven insights",
-      "Process optimization",
-      "Predictive analytics",
-    ],
+    title: "AI & Automation",
+    description: "AI-driven automation for efficiency & innovation.",
+    benefits: ["Data insights", "Process optimization", "Predictive analytics"],
   },
   {
     icon: <Cpu className="w-12 h-12 text-primary" />,
     title: "IoT & Smart Solutions",
-    description:
-      "Innovative IoT solutions to enhance connectivity and automation.",
+    description: "Smart solutions for automation & connectivity.",
     benefits: [
       "Real-time monitoring",
-      "Enhanced operational efficiency",
-      "Scalable IoT architecture",
+      "Operational efficiency",
+      "Scalable IoT",
     ],
   },
 ];
 
-
 export default function Services() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      id="services"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
-    >
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-6 text-gray-900">
-          What We Offer
-        </h2>
-        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-          We provide cutting-edge solutions to drive your business forward. From
-          AI automation to custom software, we have you covered.
-        </p>
+    <section id="services" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4" ref={ref}>
+        {/* Section Title */}
+        <motion.h2
+          className="text-4xl font-bold text-center mb-6 text-gray-900"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          Our Services
+        </motion.h2>
+        <motion.p
+          className="text-center text-gray-600 max-w-2xl mx-auto mb-12"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          We provide innovative solutions tailored to meet your business needs.
+        </motion.p>
+
+        {/* Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredIndex(index)}
-              onHoverEnd={() => setHoveredIndex(null)}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-xl">
+              <Card className="h-full flex flex-col transition-all duration-300 hover:shadow-lg">
                 <CardHeader>
-                  <div className="mb-4 flex items-center justify-center">
+                  <motion.div
+                    className="mb-4 flex items-center justify-center"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                  >
                     {service.icon}
-                  </div>
+                  </motion.div>
                   <CardTitle className="text-xl font-semibold text-center">
                     {service.title}
                   </CardTitle>
@@ -136,10 +125,7 @@ export default function Services() {
                         key={i}
                         className="flex items-center text-sm text-gray-600"
                         initial={{ opacity: 0, x: -10 }}
-                        animate={{
-                          opacity: hoveredIndex === index ? 1 : 0,
-                          x: hoveredIndex === index ? 0 : -10,
-                        }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.3, delay: i * 0.1 }}
                       >
                         <ArrowRight className="w-4 h-4 mr-2 text-primary" />
@@ -149,9 +135,14 @@ export default function Services() {
                   </ul>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="outline" className="w-full">
-                    Learn More
-                  </Button>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button variant="outline" className="w-full">
+                      Learn More
+                    </Button>
+                  </motion.div>
                 </CardFooter>
               </Card>
             </motion.div>
