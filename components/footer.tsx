@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4">TechBridge Uganda</h3>
+            <h3 className="text-lg font-semibold mb-4">Hive Konnect Uganda</h3>
             <p className="mb-4">
               Empowering Ugandan businesses through digital transformation.
             </p>
@@ -88,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 text-center">
-          <p>&copy; 2023 Hive Konnect Uganda. All rights reserved.</p>
+          <p>&copy; 2025 Hive Konnect Uganda. All rights reserved.</p>
         </div>
       </div>
     </footer>

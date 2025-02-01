@@ -8,6 +8,8 @@ import {
   Paintbrush,
   BrainCircuit,
   ArrowRight,
+ 
+  Cpu,
 } from "lucide-react";
 import {
   Card,
@@ -75,7 +77,19 @@ const services = [
       "Predictive analytics",
     ],
   },
+  {
+    icon: <Cpu className="w-12 h-12 text-primary" />,
+    title: "IoT & Smart Solutions",
+    description:
+      "Innovative IoT solutions to enhance connectivity and automation.",
+    benefits: [
+      "Real-time monitoring",
+      "Enhanced operational efficiency",
+      "Scalable IoT architecture",
+    ],
+  },
 ];
+
 
 export default function Services() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
