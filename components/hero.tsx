@@ -45,18 +45,24 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-col sm:flex-row justify-center items-center gap-4"
         >
+          <Button asChild size="lg" className="rounded-full font-semibold">
+            <Link href="#contact">
+              Start Your Digital Journey
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
           <Button
             asChild
+            variant="outline"
             size="lg"
-            className="rounded-full font-semibold px-8 py-3 text-lg bg-yellow-500 hover:bg-yellow-600"
+            className="rounded-full font-semibold bg-white/10"
           >
-            <Link href="#contact">
-              Start Your Digital Journey <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+            <Link href="#services">Explore Our Services</Link>
           </Button>
         </motion.div>
 
