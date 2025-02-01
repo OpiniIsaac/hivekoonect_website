@@ -1,6 +1,7 @@
 "use client";
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const reasons = [
   "Affordable solutions tailored for Ugandan businesses, with flexible payment plans.",
@@ -32,9 +33,11 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <img
-              src="/placeholder.svg?height=400&width=600"
+            <Image
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80"
               alt="Hive Konnect team"
+              width={600}
+              height={400}
               className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
             />
           </motion.div>

@@ -26,7 +26,7 @@ export default function About() {
               alt="About Hive Konnect"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
               height="310"
-              src="/placeholder.svg?height=310&width=550"
+              src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               width="550"
             />
           </div>
